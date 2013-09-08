@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>清秋梧桐</title>
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<!--[if it IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+    	#myCarousel{
+    		margin-top:-20px;
+    	}
+    	
+    	#features {
+		    padding: 40px 0px;
+		    background: none repeat scroll 0% 0% rgb(67, 128, 121);
+		}
+		
+		a:hover{
+			color:#4298ba;
+			text-decoration:none
+		}
+		
+		#features .feature{
+			display: block;
+			float: left;
+			width: 140px;
+			line-height: 30px;
+			color: rgb(255, 255, 255);
+			font-weight: bold;
+			font-size:120%;
+		}
+		
+		#features a:hover{
+			opacity:.8;
+		}
+		
+		#features .tour-link {
+		    display: block;
+		    float: right;
+		    padding: 5px 10px;
+		    font-size: 14px;
+		    font-weight: bold;
+		    background: none repeat scroll 0% 0% rgb(101, 153, 149);
+		    color: rgb(255, 255, 255);
+		    border-radius: 4px 4px 4px 4px;
+		}
+		
+		#customer {
+		    padding: 40px 0px;
+		    background: none repeat scroll 0% 0% rgb(227, 229, 207);
+		}
+		
+		#customer h1{
+			color:#456b6a;
+			font-weight:bold;
+		}
+		
+		#customer strong{
+			font-size:150%;
+		}
+		
+		#customer .logos {
+		    width: 600px;
+		    margin: 0 auto;
+		}
+		
+		#customer .logos li {
+			float: left;
+			padding: 15px;
+		}
+		
+		#customer .logos a{
+			display:block;
+			overflow:hidden;
+			width:100px;
+			height:100px;
+			text-align:center;
+			text-indent:-999px;
+			background:url(img/business.png) no-repeat 0 0;
+		}
+		
+		#customer .logos .l1 a{
+			background-position:0 -200px;
+		}
+		
+		#customer .logos .l1 a:hover{
+			background-position:0 0;
+		}
+		
+		#customer .logos .l2 a{
+			background-position:-100px -200px;
+		}
+		
+		#customer .logos .l2 a:hover{
+			background-position:-100px 0;
+		}
+		
+		#customer .logos .l3 a{
+			background-position:-200px -200px;
+		}
+		
+		#customer .logos .l3 a:hover{
+			background-position:-200px 0;
+		}
+		
+		#customer .logos .l4 a{
+			background-position:-300px -200px;
+		}
+		
+		#customer .logos .l4 a:hover{
+			background-position:-300px 0;
+		}
+
+		#customer .logos .l5 a{
+			background-position:0 -300px;
+		}
+		
+		#customer .logos .l5 a:hover{
+			background-position:0 -100px;
+		}
+		
+		#customer .logos .l6 a{
+			background-position:-100px -300px;
+		}
+		
+		#customer .logos .l6 a:hover{
+			background-position:-100px -100px;
+		}
+
+		#customer .logos .l7 a{
+			background-position:-200px -300px;
+		}
+		
+		#customer .logos .l7 a:hover{
+			background-position:-200px -100px;
+		}		
+		
+		#customer .logos .l8 a{
+			background-position:-300px -300px;
+		}
+		
+		#customer .logos .l8 a:hover{
+			background-position:-300px -100px;
+		}			
+		.unique{
+			background:url("img/m2.jpg") repeat-x scroll 50% 50% / cover;
+		}
+		
+		.unique .col-lg-4{
+		    text-align: center;
+		    margin-bottom：20px;
+		}
+		
+		.unique .col-lg-4 p {
+		    margin-left: 10px;
+		    margin-right: 10px;
+		}
+		
+		.footer{
+			padding: 20px 0px;
+			background: none repeat scroll 0% 0% rgb(34, 34, 34);
+		}
+		
+		.footer .container .links a {
+		    display: block;
+		    float: left;
+		    margin-right: 30px;
+		    padding: 5px 0px;
+		    font-size: 12px;
+		    color: rgb(170, 170, 170);
+		}
+		
+		.footer .container .copyright {
+		    float: right;
+		    padding: 5px 0px;
+		    font-size: 12px;
+		    color: rgb(102, 102, 102);
+		}
+		
+		.form-signin {
+			max-width: 330px;
+			padding: 0px;
+			margin: 0 auto;
+		}
+		.form-signin .form-signin-heading,
+		.form-signin .checkbox {
+			margin-bottom: 0px;
+		}
+		.form-signin .checkbox {
+			font-weight: normal;
+		}
+		.form-signin .form-control {
+			position: relative;
+			font-size: 16px;
+			height: auto;
+			padding-top: 5px;
+			-webkit-box-sizing: border-box;
+			   -moz-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+		.form-signin .form-control:focus {
+			z-index: 2;
+		}
+		.form-signin input[type="text"] {
+			margin-bottom: 5px;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		.form-signin input[type="password"] {
+			margin-bottom: 5px;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		}
+		
+    </style>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class='role'><div class="col-md-1"></div></div>
+		<div class="navbar-header">
+	    	<a class="navbar-brand" href="#">微积分</a>
+  		</div>
+  		<div class="collapse navbar-collapse navbar-ex1-collapse">
+  		  	<div class='role'><div class="col-md-4"></div></div>
+		    <ul class="nav navbar-nav">
+		      <li class="active"><a href="#">首页</a></li>
+		      <li><a href="#">了解详细</a></li>
+		      <li><a href="#">价格和方案</a></li>    
+		    </ul>
+		    <div class='role'><div class="col-md-2"></div></div>
+		    <button type="button" class="btn btn-primary navbar-btn">免费注册</button>
+			<button type="button" class="btn btn-success navbar-btn" data-toggle="modal" data-target="#modal_login">登陆  <span class="glyphicon glyphicon-plane"></span></button>
+		    
+  		</div>
+	</nav>
+	
+	<div id="myCarousel" class="carousel slide">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+		  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		  <li data-target="#myCarousel" data-slide-to="1"></li>
+		</ol>
+		
+		<!-- Wrapper for slides -->
+		 <div class="carousel-inner">
+		<div class="item active">
+		  <img src="data:image/png;base64," data-src="holder.js/1400x500/auto/#666:#6a6a6a/text:Welcome" alt="Welcome">
+		  <div class='container'>
+		  	<div class="carousel-caption">
+			   	<h3>面向商家的第三方服务工具</h3>
+			   	<p>在这里你可以第一时间获取订单，与用户沟通</p>
+		    </div>
+		  </div>
+		</div>
+		<div class="item">
+		  <img src="data:image/png;base64," data-src="holder.js/1400x500/auto/#666:#6a6a6a/text:Welcome" alt="Welcome">  
+		  <div class='container'>
+		  	<div class="carousel-caption">
+			    <h3>简单，好用的客户营销工具</h3>
+			    <p>在这里你可以第一时间获取订单，与用户沟通</p>
+		   	</div>
+		  </div>
+		</div>
+		    </div>
+			  <!-- Controls -->
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+		  <span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a class="right carousel-control" href="#myCarousel" data-slide="next">
+		  <span class="glyphicon glyphicon-chevron-right"></span>
+		</a>
+	</div>
+
+	<div id='features'>
+		<div class='container'>
+			<div class='role'><div class="col-md-2"></div></div>
+			<a class='feature'><span class="glyphicon glyphicon-shopping-cart"></span> 商品管理</a>
+			<a class='feature'><span class="glyphicon glyphicon-user"></span> 会员管理</a>
+			<a class='feature'><span class="glyphicon glyphicon-list-alt"></span> 订单管理</a>
+			<a class='feature'><span class="glyphicon glyphicon glyphicon-star"></span> 活动管理</a>
+			<a class='feature'><span class="glyphicon glyphicon-stats"></span> 统计分析</a>
+			<a class="tour-link">
+				了解详细 <span class="glyphicon glyphicon-play"></span>		
+			</a>
+		</div>
+	</div>
+	
+	<div id='customer'>
+		<h1 class='text-center'>超过 <strong>1000</strong> 个商家的选择</h1>
+		<ul class='logos'>
+			<li class='l1'><a class='img-circle'>回品茶叶</a></li>
+			<li class='l2'><a class='img-circle'>都市118连锁酒店</a></li>
+			<li class='l3'><a class='img-circle'>风流屋</a></li>
+			<li class='l4'><a class='img-circle'>上海古玩古董鉴定交流中心</a></li>
+			<li class='l5'><a class='img-circle'>爱的平方婚典策划</a></li>
+			<li class='l6'><a class='img-circle'>壹号线</a></li>
+			<li class='l7'><a class='img-circle'>美丽妆品</a></li>
+			<li class='l8'><a class='img-circle'>天鼎茶叶</a></li>
+		</ul>
+		<div style='height:300px;'></div>
+		
+	</div>
+	
+	<div class='unique'>
+		<div class='container'>
+		<div class='row'>
+			<div class='col-lg-4'>
+				<img src='' class='img-circle' data-src="holder.js/140x140" src="data:image/png;base64,">
+				<h2>特点1</h2>
+				<p>甚至我在windows下找搜狗甚至百度自家的输入法，都没有完全相同的功能。
+				似乎都要先切到自身输入法的英文输入模式才能实现自动空格，但这样来回切换显
+				然太繁琐，而且我的习惯是如果要切换就直接切换到英文键盘，免得一不小心和其
+				他操作的快捷键冲突</p>
+				<p>
+					<a class="btn btn-default" role="button" href="#">
+				      查看详情 »
+				    </a>
+				</p>
+			</div>
+		
+			<div class='col-lg-4'>
+				<img src='' class='img-circle' data-src="holder.js/140x140" src="data:image/png;base64,">
+				<h2>特点1</h2>
+				<p>甚至我在windows下找搜狗甚至百度自家的输入法，都没有完全相同的功能。
+				似乎都要先切到自身输入法的英文输入模式才能实现自动空格，但这样来回切换显
+				然太繁琐，而且我的习惯是如果要切换就直接切换到英文键盘，免得一不小心和其
+				他操作的快捷键冲突</p>
+				<p>
+					<a class="btn btn-default" role="button" href="#">
+				      查看详情 »
+				    </a>
+				</p>
+			</div>
+		
+			<div class='col-lg-4'>
+				<img src='' class='img-circle' data-src="holder.js/140x140" src="data:image/png;base64,">
+				<h2>特点1</h2>
+				<p>甚至我在windows下找搜狗甚至百度自家的输入法，都没有完全相同的功能。
+				似乎都要先切到自身输入法的英文输入模式才能实现自动空格，但这样来回切换显
+				然太繁琐，而且我的习惯是如果要切换就直接切换到英文键盘，免得一不小心和其
+				他操作的快捷键冲突</p>
+				<p>
+					<a class="btn btn-default" role="button" href="#">
+				      查看详情 »
+				    </a>
+				</p>
+			</div>
+		</div>
+		</div>
+	</div>
+	
+	<div class='footer'>
+		<div class='container'>
+			<div class='links'>
+				<a>关于我们</a>
+				<a>联系我们</a>
+				<a>服务条款</a>
+				<a>常见问题</a>
+			</div>
+			<div class='copyright'>
+				<small>川B2-20130052，蜀ICP备12019256号-5</small>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Modal -->
+    <div class="modal fade" id="modal_login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">请登录...</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-signin">
+              <input type="text" class="form-control" placeholder="账号" autofocus>
+              <input type="password" class="form-control" placeholder="密码">
+              <label class="checkbox">
+                <input type="checkbox" value="remember-me"> 记住我
+              </label>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-success" >登录</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+	
+	<script src="//code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/holder.js"></script>
+</body>
+</html>
