@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>微积分</title>
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<!--[if it IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+   	<script src="http://code.jquery.com/jquery.js"></script>
+   	<link href="css/minimal/green.css" rel="stylesheet">
+   	<link href="css/datetimepicker.css" rel="stylesheet" media="screen">
+	<script src="js/jquery.icheck.js"></script>
+    <script type="text/javascript">
+
+    	$(document).ready(function(){ 
+			$("#group").on('click',function(){
+				$("ul li").removeClass("selected");
+	    		$("#group").addClass("selected");
+    		});
+	    	$("#group1").on('click',function(){
+	    		$("ul li").removeClass("selected");
+	    		$("#group1").addClass("selected");
+	    	});
+
+	    	$('input').iCheck({
+			    checkboxClass: 'icheckbox_minimal-green',
+			    radioClass: 'iradio_minimal-green',
+			    increaseArea: '20%' // optional
+			 });
+
+	    	$(".product").mouseover(function(){
+	    		$("#prodInfo").css("display","block");
+	    	});
+
+	    	$(".product").mouseleave(function(){
+	    		$("#prodInfo").css("display","none");
+	    	});
+			
+			$("#inputProdDate").datetimepicker({format: 'yyyy-mm-dd'});
+		}); 
+    	
+    </script>
+
+    <style type="text/css">
+        a{
+        	color:#84a099;
+        	cursor: auto;
+        	text-decoration: none;
+        }
+
+        a:hover{
+        	text-decoration: none;
+        	cursor: pointer;
+        }
+
+    	#setup{
+    		min-width: 120px;
+    	}
+
+    	#setup li a{
+    		padding: 3px 12px;
+    		color:#666;
+    		font-size: 12px;
+    	}
+
+    	#setup li a:hover{
+    		background-color:rgb(246,246,246);
+    	}
+
+    	body{
+    		background: #f6f7f1 url(img/m1.png) repeat 0 0;
+    	}
+
+    	/* 侧边导航栏*/
+    	.sidebar{
+    		margin-top: 30px;
+			margin-bottom: 30px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			text-shadow: 0 1px 0 #fff;
+			background-color: white;
+			border-radius: 5px;
+    	}
+    	/*导航栏分割线*/
+    	.sidebar li.partline{
+    		height: 1px;
+			width: 100%;
+			margin: 6px 0 5px;
+			border-top: 2px dotted #ddd;
+    	}
+
+    	.sidebar a{
+    		display: block;
+			color: black;
+			padding: 5px 20px;
+    	}
+
+    	.selected{
+    		font-weight: bold;
+    		color: #563d7c;
+			background-color: transparent;
+			border-right: 1px solid #563d7c;
+    	}
+
+    	/*主内容区域*/
+    	.workspace{
+    		margin:0 auto;
+    		opacity: 1;
+    		min-height: 600px;
+    		background-color: #ffffff;
+			border-color: #ffffff;
+			-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.15);
+			-moz-box-shadow: 0 0 5px rgba(0,0,0,0.15);
+			box-shadow: 0 0 5px rgba(0,0,0,0.15);
+			border: 1px solid #dbdfd6;
+			border-radius: 5px;
+			top: 30px;
+    	}
+
+    	.workspace .pageinner{
+    		padding: 0 20px 40px;
+    	}
+
+    	.batch{
+			padding: 30px 2px 55px;    		
+			background: url(img/head-border.png) repeat-x 0 100%;
+    	}
+
+    	.batch h3{
+    		margin-top: 0px;
+    		color: #84a099;
+    	}
+
+    	.right {
+    		float: right;
+    	}
+
+    	.left{
+    		float: left;
+    	}
+
+    	.listTitle{
+    		overflow: hidden;
+    		padding: 5px 0 10px 20px;
+    		border-bottom: 1px solid #d3d3d3;
+    	}
+
+    	.productlist{
+    		margin-bottom: 20px;
+    	}
+
+    	.product{
+    		padding: 10px 0 10px 20px;
+    		overflow: hidden;
+			border-bottom: 1px solid #d3d3d3;
+    	}
+
+    	.product .shift{
+    		padding-top: 5px;
+    	}
+
+    	.product .avatar{
+    		margin-left: 20px;
+    	}
+
+    	.product .prod-link{
+    		min-height: 40px;
+			font-size: 14px;
+			line-height: 16px;
+			margin-left: 20px;
+    		max-width: 450px;
+    	}
+
+    	.product .prod-link .prod-name{
+    		color: #333333;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+    	}
+
+    	.product .prod-link .prod-intro{
+			white-space: nowrap;
+			overflow: hidden;
+			line-height: 1.2;
+			text-overflow: ellipsis;
+			color: #999999;
+			margin: 6px 0 0 0;
+			word-wrap: break-word;
+    	}
+
+    	.product .showButton{
+    		margin-left: 20px;
+    		margin-top: 10px;
+    	}
+
+    </style>
+</head>
+<body>
+		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+			<div class='role'><div class="col-md-1"></div></div>
+			<div class="navbar-header">
+		    	<a class="navbar-brand" href="#">微积分</a>
+	  		</div>
+	  		<div class="collapse navbar-collapse navbar-ex1-collapse" >
+			    <ul class="nav navbar-nav">
+			      <li class="active"><a href="#">商品管理</a></li>
+			      <li><a href="#">订单管理</a></li>
+			      <li><a href="#">会员管理</a></li>    
+			      <li><a href="#">活动管理</a></li>  
+			      <li><a href="#">统计分析</a></li> 	
+			      
+			    </ul>
+			    <ul class="nav navbar-nav navbar-right">	
+					<li class="dropdown active">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<img  class='img-circle' src="img/head.png" style="width:26px;height:26px">
+							<span class='glyphicon glyphicon-collapse-down'></span></img>
+						</a>
+						<ul class="dropdown-menu" id='setup'>
+						  <li><a href="#">个人设置</a></li>
+						  <li><a href="#">退出</a></li>
+						</ul>
+					</li>	
+			    </ul>
+	  		</div>
+		</nav>
+
+		<div class='container'>
+			<div class='row'>
+				<div class="col-md-3">
+					<ul class="nav sidebar">
+						<li id='group'><a>未分类</a></li>
+						<li id='group1'><a>星标类</a></li>
+						<li class='partline'></li>
+						<li><a><span class='glyphicon glyphicon-plus'></span>  添加类别</a></li>
+					</ul>
+
+				</div>
+				<div class="col-md-9 workspace">
+					<div class='pageinner'>·
+						<div class='batch'>
+							<div class="role">
+								<div class='col-md-6'>		
+									<h3>批量分组
+									<div class="btn-group">
+										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+										未分类 <span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu" role="menu">
+										<li><a href="#">未分类</a></li>
+										<li><a href="#">星标类</a></li>
+										</ul>
+									</div>
+									<button type="button" class="btn btn-default">放入</button>
+									</h3>
+								</div>
+								<div class="col-md-2">
+									<button type="button" class="btn btn-success">管理库存 <span class='glyphicon glyphicon-shopping-cart'></span></button>
+								</div>
+							</div>
+							<div class='right'>
+								<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add">添加商品 <span class='glyphicon glyphicon-plus'></span></button>
+							</div>
+						</div>
+
+						<div class="listTitle">
+							<div class='left'><input type="checkbox"></div>
+							<div class='left'>全选</div>
+						</div>
+
+						<div class='product-list'>
+							<div class='product'>
+								<div class='left shift'><input type="checkbox"></div>
+								<a class='left avatar' id='prod1'><img class='img-rounded' height='48' width='48' src="img/prod1.png"></a>
+								<a class="left prod-link">
+									<div class='prod-name'>密室迷失 <span class="label label-danger">2013-09-14 <span class='glyphicon glyphicon-warning-sign'></span></span></div>
+									<div class='prod-intro'>五人的密室缺突然多了一个谁也不认识的人，黑夜重重，究竟谁才是那个幕后后手</div>
+								</a>
+
+								<!-- 当鼠标在商品图片上方时，会出现修改和删除按钮-->
+								<div id='prodInfo' class="left showButton" style="display:none;">
+									<a><span class='glyphicon glyphicon-pencil'></span></a>
+									<a><span class='glyphicon glyphicon-trash'></span></a>
+								</div>
+							</div>
+							<div class='product'>
+								<div class='left shift'><input type="checkbox"></div>
+								<a class='left avatar' id='prod1'><img class='img-rounded' height='48' width='48' src="img/prod1.png"></a>
+								<a class="left prod-link">
+									<div class='prod-name'>密室迷失 <span class="label label-danger">2013-09-14 <span class='glyphicon glyphicon-warning-sign'></span></span></div>
+									<div class='prod-intro'>五人的密室缺突然多了一个谁也不认识的人，黑夜重重，究竟谁才是那个幕后后手</div>
+								</a>
+
+								<!-- 当鼠标在商品图片上方时，会出现修改和删除按钮-->
+								<div id='prodInfo' class="left showButton" style="display:none;">
+									<a><span class='glyphicon glyphicon-pencil'></span></a>
+									<a><span class='glyphicon glyphicon-trash'></span></a>
+								</div>
+							</div>
+							<div class='product'>
+								<div class='left shift'><input type="checkbox"></div>
+								<a class='left avatar' id='prod1'><img class='img-rounded' height='48' width='48' src="img/prod1.png"></a>
+								<a class="left prod-link">
+									<div class='prod-name'>密室迷失 <span class="label label-danger">2013-09-14 <span class='glyphicon glyphicon-warning-sign'></span></span></div>
+									<div class='prod-intro'>五人的密室缺突然多了一个谁也不认识的人，黑夜重重，究竟谁才是那个幕后后手</div>
+								</a>
+
+								<!-- 当鼠标在商品图片上方时，会出现修改和删除按钮-->
+								<div id='prodInfo' class="left showButton" style="display:none;">
+									<a><span class='glyphicon glyphicon-pencil'></span></a>
+									<a><span class='glyphicon glyphicon-trash'></span></a>
+								</div>
+							</div>
+							<div class='product'>
+								<div class='left shift'><input type="checkbox"></div>
+								<a class='left avatar' id='prod1'><img class='img-rounded' height='48' width='48' src="img/prod1.png"></a>
+								<a class="left prod-link">
+									<div class='prod-name'>密室迷失 <span class="label label-danger">2013-09-14 <span class='glyphicon glyphicon-warning-sign'></span></span></div>
+									<div class='prod-intro'>五人的密室缺突然多了一个谁也不认识的人，黑夜重重，究竟谁才是那个幕后后手</div>
+								</a>
+
+								<!-- 当鼠标在商品图片上方时，会出现修改和删除按钮-->
+								<div id='prodInfo' class="left showButton" style="display:none;">
+									<a><span class='glyphicon glyphicon-pencil'></span></a>
+									<a><span class='glyphicon glyphicon-trash'></span></a>
+								</div>
+							</div>														
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	<!-- Modal -->
+    <div class="modal fade" id="modal-add" tabindex="-1" role="dialog" aria-labelledby="addProdLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="addProdLabel">添加商品...</h4>
+			</div>
+
+			<div class="modal-body">
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label for="inputProdName" class='col-sm-2 control-label'>商品名称</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputProdName" placeholder="输入商品名">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputProdPrice" class='col-sm-2 control-label'>价格</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputProdPrice" placeholder="输入价格">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputProdDate" class='col-sm-2 control-label'>有效期</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control form-datetime" readonly id="inputProdDate">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				<button type="button" class="btn btn-success" >保存</button>
+			</div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+	
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/holder.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+</body>
+</html>
