@@ -6,18 +6,59 @@
 	<title>微积分</title>
 	<!-- Bootstrap core CSS -->
 	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/minimal/green.css" rel="stylesheet">
 	<!--[if it IE 9]>
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
-   	<script src="http://code.jquery.com/jquery.js"></script>
-    <script type="text/javascript">
+   	<script src="js/jquery-1.9.1.min.js"></script>
+   	<script src="js/jquery.icheck.js"></script>
 
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		var height = $(window).height()-$("#menuHeight").height()
+    					-$(".menuAction").height()-$(".navbar").height();
+    		$(".menuAction").css("margin-top",height);
+
+    		$('input').iCheck({
+			    checkboxClass: 'icheckbox_minimal-green',
+			    radioClass: 'iradio_minimal-green',
+			    increaseArea: '20%' // optional
+			 });
+
+	    	$(".product").mouseover(function(){
+	    		$("#prodInfo").css("display","block");
+	    	});
+
+	    	$(".product").mouseleave(function(){
+	    		$("#prodInfo").css("display","none");
+	    	});
+    	});
 
     	
     </script>
 
     <style type="text/css">
+    	/*组件全局样式设置 */
+    	ul{
+    		list-style: none;
+    		margin:0;
+    		padding: 0;
+    	}
+
+    	a{
+    		color:#84a099;
+    		text-decoration: none;
+    	}
+
+    	a:hover{
+    		text-decoration: none;
+    	}
+
+    	.navbar{
+    		margin-bottom: 0;
+    	}
+    	/*修改bootstrap默认导航栏颜色*/
     	.bs-docs-nav {
 			text-shadow: 0 -1px 0 rgba(0,0,0,.15);
 			background-color: #068572;
@@ -125,28 +166,221 @@
 
     	.main .sidebar{
     		width:240px;
-			float: left;	
+    		height: 100%;
+			float: left;
+			background: transparent url(img/bg.png);	
+			border-right: 1px solid #b3b3b3;
     	}
 
-    	.main .sidebar .menu{
-    		background-image:-webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) ));
-    		transition: background .2s ease-in-out;
-			color: hsl(0, 0%, 40%) !important;
-			background-color: hsl(0, 0%, 75%);
-    	}
+    	.main .sidebar h4{
+    		cursor: pointer;
+    		padding-left: 10px;
+    		font-size: 14px;
+    		height:31px;
+    		line-height:31px;
+    		margin:0; 
+    		margin-bottom:1px;
+    		background-color:#e7e7e7;
+    		background-image:-moz-linear-gradient(top, #f7f7f7, #cfcfcf);
+    		background-image:-ms-linear-gradient(top, #f7f7f7, #cfcfcf);
+    		background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#f7f7f7), to(#cfcfcf));
+    		background-image:-webkit-linear-gradient(top, #f7f7f7, #cfcfcf);
+    		background-image:-o-linear-gradient(top, #f7f7f7, #cfcfcf);
+    		background-image:linear-gradient(top, #f7f7f7, #cfcfcf);
+    		background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7f7f7', endColorstr='#cfcfcf', GradientType=0);
+    		-webkit-box-shadow:0 1px 0 0 rgba(255,255,255,0.8) inset,0 1px 0 0 rgba(0,0,0,0.2);
+    		-moz-box-shadow:0 1px 0 0 rgba(255,255,255,0.8) inset,0 1px 0 0 rgba(0,0,0,0.2);
+    		box-shadow:0 1px 0 0 rgba(255,255,255,0.8) inset,0 1px 0 0 rgba(0,0,0,0.2)
+		}
 
+		.main .sidebar h4:hover{
+			background-color:#ecf2f5;
+			background-image:-moz-linear-gradient(top, #f4fafd, #e0e5e8);
+			background-image:-ms-linear-gradient(top, #f4fafd, #e0e5e8);
+			background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#f4fafd), to(#e0e5e8));
+			background-image:-webkit-linear-gradient(top, #f4fafd, #e0e5e8);
+			background-image:-o-linear-gradient(top, #f4fafd, #e0e5e8);
+			background-image:linear-gradient(top, #f4fafd, #e0e5e8);
+			background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4fafd', endColorstr='#e0e5e8', GradientType=0)
+		}
+
+		.main .sidebar  h4.active,
+		.main .sidebar  h4.active:hover{
+			background-color:#fff;
+			background-color:#e5eef3;
+			background-image:-moz-linear-gradient(top, #dee7ec, #f0f9fe);
+			background-image:-ms-linear-gradient(top, #dee7ec, #f0f9fe);
+			background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#dee7ec), to(#f0f9fe));
+			background-image:-webkit-linear-gradient(top, #dee7ec, #f0f9fe);
+			background-image:-o-linear-gradient(top, #dee7ec, #f0f9fe);
+			background-image:linear-gradient(top, #dee7ec, #f0f9fe);
+			background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dee7ec', endColorstr='#f0f9fe', GradientType=0)
+		}
+
+		.main .sidebar a{
+			color: rgb(153,153,153);
+		}
+
+		.main .sidebar .menu ul{
+			margin-bottom: 0;
+		}
+
+		.main .sidebar .menu ul li{
+			height: 30px;
+			padding-left: 35px;
+			line-height: 30px;
+			border-top: 1px solid #fff;
+			border-bottom: 1px solid #ddd;
+		}
+
+		.main .sidebar .menu ul li span{
+			margin-top: 5px;
+		}
+
+		.main .sidebar .menu ul li:hover{
+			background-color: #f8f8f8;
+		}
+
+		.main .sidebar .menuAction{
+			background-color: #aaa;
+			width: 100%;
+			overflow: hidden;
+			border-top: 1px solid #ccc;
+			background-color: #e7e7e7;
+			background-image: -moz-linear-gradient(top, #f7f7f7, #cfcfcf);
+			background-image: -ms-linear-gradient(top, #f7f7f7, #cfcfcf);
+			background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f7f7f7), to(#cfcfcf));
+			background-image: -webkit-linear-gradient(top, #f7f7f7, #cfcfcf);
+			background-image: -o-linear-gradient(top, #f7f7f7, #cfcfcf);
+			background-image: linear-gradient(top, #f7f7f7, #cfcfcf);
+			background-repeat: repeat-x;
+		}
+
+		/* 导航栏最底部*/
+		.main .sidebar .menuAction ul{
+			border-top: 1px solid #fff;
+			margin: 0;
+			position: relative;
+		}
+
+		.main .sidebar .menuAction ul li{
+			float: left;
+			border-right: 1px solid #e9e9e9;
+		}
+
+		.main .sidebar .menuAction ul li a{
+			color: rgb(153,153,153);
+			font-size: 14px;
+			height: 30px;
+			width: 35px;
+			padding-top: 5px;
+			display: block;
+			text-align: center;
+			border-right: 1px solid #c8c8c8;
+			background-color: #e7e7e7;
+			background-image: -moz-linear-gradient(top, #f7f7f7, #cfcfcf);
+			background-image: -ms-linear-gradient(top, #f7f7f7, #cfcfcf);
+			background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f7f7f7), to(#cfcfcf));
+			background-image: -webkit-linear-gradient(top, #f7f7f7, #cfcfcf);
+			background-image: -o-linear-gradient(top, #f7f7f7, #cfcfcf);
+			background-image: linear-gradient(top, #f7f7f7, #cfcfcf);
+			background-repeat: repeat-x;
+		}
+
+		.main .sidebar .menuAction ul li a:hover{
+			color: black;
+			background-color:#e9e9e9;
+			background-image:-moz-linear-gradient(top, #fff, #c8c8c8);
+			background-image:-ms-linear-gradient(top, #fff, #c8c8c8);
+			background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#c8c8c8));
+			background-image:-webkit-linear-gradient(top, #fff, #c8c8c8);
+			background-image:-o-linear-gradient(top, #fff, #c8c8c8);
+			background-image:linear-gradient(top, #fff, #c8c8c8);
+			background-repeat:repeat-x;
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#c8c8c8', GradientType=0)
+		}
+
+		.main .sidebar .menuAction ul li.sitRight{
+			float:right;
+			border-left: 1px solid #c8c8c8;
+		}
 
     	.main .content .task{
     		float: left;
-    		width:55%;
+    		width:45%;
     		height: 100%;
-    		-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    		-moz-box-shadow: 0 0 5px rgba(0,0,0,0.15);
+    		-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.15);
 			box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+			border: 1px solid #dbdfd6;
+    	}
+
+    	.main .content .task .batch{
+    		padding: 30px 2px 55px;
+    		background: url(img/head-border.png) repeat-x 0 100%;
+    	}
+
+    	.left{
+    		float: left;
+    	}
+
+    	.task .listTitle{
+    		overflow: hidden;
+    		padding: 5px 0 10px 20px;
+    		border-bottom: 1px solid #d3d3d3;
+    	}
+
+    	.task .product-list{
+    		margin-bottom: 20px;
+    	}
+
+    	.task .product-list .product{
+    		padding: 10px 0 10px 20px;
+    		overflow: hidden;
+			border-bottom: 1px solid #d3d3d3;
+    	}
+
+    	.task .product-list .product .shift{
+    		padding-top: 5px;
+    	}
+
+    	.task .product-list .product .avatar{
+    		margin-left: 10px;
+    	}
+
+    	.task .product-list .product .prod-link{
+    		min-height: 40px;
+			font-size: 14px;
+			line-height: 16px;
+			margin-left: 20px;
+    		max-width: 300px;
+    	}
+
+    	.task .product-list .product .prod-link .prod-name{
+    		color: #333333;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+    	}
+
+    	.task .product-list .product .prod-link .prod-intro{
+			white-space: nowrap;
+			overflow: hidden;
+			line-height: 1.2;
+			text-overflow: ellipsis;
+			color: #999999;
+			margin: 6px 0 0 0;
+			word-wrap: break-word;
+    	}
+
+    	.task .product-list .product .showButton{
+    		margin-left: 20px;
+    		margin-top: 10px;
     	}
 
     	.main .content .taskDetail{
     		float: left;
-    		width:45%;
+    		width:55%;
     		margin: 0;
 			background-color: #ffffff;
 			-webkit-box-sizing: border-box;
@@ -194,13 +428,111 @@
 
 	<div class='main'>
 		<div class='sidebar'>
+			<div id='menuHeight'>
 			<div class='menu'>
-				<h4><span class='glyphicon glyphicon-align-justify'></span> 商品管理</h4>
+				<h4><span class='glyphicon glyphicon-shopping-cart'></span> &nbsp&nbsp商品管理</h4>
+				<ul>
+					<li><a href="#">未分类 <span class="badge pull-right">14</span></a></li>
+					<li><a href="#">星标类 <span class="badge pull-right">10</span></a></li>
+				</ul>
+			</div>
+			<div class='menu'>
+				<h4><span class='glyphicon glyphicon-list-alt'></span> &nbsp&nbsp订单管理</h4>
+			</div>
+			<div class='menu'>
+				<h4><span class='glyphicon glyphicon-user'></span> &nbsp&nbsp会员管理</h4>
+			</div>
+			<div class='menu'>
+				<h4><span class='glyphicon glyphicon glyphicon-star'></span> &nbsp&nbsp活动管理</h4>
+			</div>
+			<div class='menu'>
+				<h4><span class='glyphicon glyphicon-stats'></span> &nbsp&nbsp统计分析</h4>
+			</div>
+			</div>
+			<div class='menuAction'>
+				<ul>
+					<li><a href="#"><span class='glyphicon glyphicon-plus'></span></a></li>
+					<li><a href="#"><span class='glyphicon glyphicon-cog'></span></a></li>
+				</ul>
 			</div>
 		</div>
+
 		<div class='content'>
 			<div class='task'>
-				
+				<div class="batch">
+					<div class="role">
+						<div class="col-md-3">
+							<button type="button" class="btn btn-success">管理库存 <span class='glyphicon glyphicon-shopping-cart'></span></button>
+						</div>
+						<div class="col-md-3">
+							<button type="button" class="btn btn-success">添加商品 <span class='glyphicon glyphicon-plus'></span></button>
+						</div>					
+					</div>
+				</div>
+
+				<div class="listTitle">
+					<div class='left'><input type="checkbox"></div>
+					<div class='left'>全选</div>
+				</div>
+
+				<div class='product-list'>
+					<div class='product'>
+						<div class='left shift'><input type="checkbox"></div>
+						<a class='left avatar' id='prod1'><img class='img-rounded' height='48' width='48' src="img/prod1.png"></a>
+						<a class="left prod-link">
+							<div class='prod-name'>密室迷失 <span class="label label-danger">2013-09-14 <span class='glyphicon glyphicon-warning-sign'></span></span></div>
+							<div class='prod-intro'>五人的密室缺突然多了一个谁也不认识的人，黑夜重重，究竟谁才是那个幕后后手</div>
+						</a>
+
+						<!-- 当鼠标在商品图片上方时，会出现修改和删除按钮-->
+						<div id='prodInfo' class="left showButton" style="display:none;">
+							<a><span class='glyphicon glyphicon-pencil'></span></a>
+							<a><span class='glyphicon glyphicon-trash'></span></a>
+						</div>
+					</div>
+					<div class='product'>
+						<div class='left shift'><input type="checkbox"></div>
+						<a class='left avatar' id='prod1'><img class='img-rounded' height='48' width='48' src="img/prod1.png"></a>
+						<a class="left prod-link">
+							<div class='prod-name'>密室迷失 <span class="label label-danger">2013-09-14 <span class='glyphicon glyphicon-warning-sign'></span></span></div>
+							<div class='prod-intro'>五人的密室缺突然多了一个谁也不认识的人，黑夜重重，究竟谁才是那个幕后后手</div>
+						</a>
+
+						<!-- 当鼠标在商品图片上方时，会出现修改和删除按钮-->
+						<div id='prodInfo' class="left showButton" style="display:none;">
+							<a><span class='glyphicon glyphicon-pencil'></span></a>
+							<a><span class='glyphicon glyphicon-trash'></span></a>
+						</div>
+					</div>
+					<div class='product'>
+						<div class='left shift'><input type="checkbox"></div>
+						<a class='left avatar' id='prod1'><img class='img-rounded' height='48' width='48' src="img/prod1.png"></a>
+						<a class="left prod-link">
+							<div class='prod-name'>密室迷失 <span class="label label-danger">2013-09-14 <span class='glyphicon glyphicon-warning-sign'></span></span></div>
+							<div class='prod-intro'>五人的密室缺突然多了一个谁也不认识的人，黑夜重重，究竟谁才是那个幕后后手</div>
+						</a>
+
+						<!-- 当鼠标在商品图片上方时，会出现修改和删除按钮-->
+						<div id='prodInfo' class="left showButton" style="display:none;">
+							<a><span class='glyphicon glyphicon-pencil'></span></a>
+							<a><span class='glyphicon glyphicon-trash'></span></a>
+						</div>
+					</div>
+					<div class='product'>
+						<div class='left shift'><input type="checkbox"></div>
+						<a class='left avatar' id='prod1'><img class='img-rounded' height='48' width='48' src="img/prod1.png"></a>
+						<a class="left prod-link">
+							<div class='prod-name'>密室迷失 <span class="label label-danger">2013-09-14 <span class='glyphicon glyphicon-warning-sign'></span></span></div>
+							<div class='prod-intro'>五人的密室缺突然多了一个谁也不认识的人，黑夜重重，究竟谁才是那个幕后后手</div>
+						</a>
+
+						<!-- 当鼠标在商品图片上方时，会出现修改和删除按钮-->
+						<div id='prodInfo' class="left showButton" style="display:none;">
+							<a><span class='glyphicon glyphicon-pencil'></span></a>
+							<a><span class='glyphicon glyphicon-trash'></span></a>
+						</div>
+					</div>														
+				</div>
 			</div>
 			<div class='taskDetail'>
 				
@@ -210,7 +542,6 @@
 		
 
 	
-
     <script src="js/bootstrap.min.js"></script>
     
 </body>
