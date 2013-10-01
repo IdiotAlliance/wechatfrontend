@@ -2203,8 +2203,8 @@ fieldset[disabled] .btn-danger.active {
 
 .btn-success {
   color: #ffffff;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #068572;
+  border-color: #068572;
 }
 
 .btn-success:hover,
@@ -2213,8 +2213,8 @@ fieldset[disabled] .btn-danger.active {
 .btn-success.active,
 .open .dropdown-toggle.btn-success {
   color: #ffffff;
-  background-color: #47a447;
-  border-color: #398439;
+  background-color: #055D50;
+  border-color: #068572;
 }
 
 .btn-success:active,
@@ -2238,8 +2238,8 @@ fieldset[disabled] .btn-success:active,
 .btn-success.disabled.active,
 .btn-success[disabled].active,
 fieldset[disabled] .btn-success.active {
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #055D50;
+  border-color: #068572;
 }
 
 .btn-info {
@@ -3282,14 +3282,11 @@ input[type="button"].btn-block {
   border-top:1px solid #005489;border-bottom:1px solid #012f4b
 }
 
-.dropdown-menu li>a:hover,
-.dropdown-menu .active>a,
-.dropdown-menu .active>a:hover{
-  background-color:#023555;
-  border-top:1px solid #012f4b;
-  -webkit-box-shadow:inset 1px 0 1px rgba(0,0,0,0.2);
-  -moz-box-shadow:inset 1px 0 1px rgba(0,0,0,0.2);
-  box-shadow:inset 1px 0 1px rgba(0,0,0,0.2)
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: #262626;
+  text-decoration: none;
+  background-color: #f5f5f5;
 }
 
 .dropdown-menu > .active > a,

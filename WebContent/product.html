@@ -7,57 +7,91 @@
 	<!-- Bootstrap core CSS -->
 	<link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/minimal/green.css" rel="stylesheet">
+	<link href="css/datepicker.css" rel="stylesheet">
 	<!--[if it IE 9]>
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
    	<script src="js/jquery-1.9.1.min.js"></script>
    	<script src="js/jquery.icheck.js"></script>
+   	<script src="js/bootstrap-datepicker.js"></script>
 
     <script type="text/javascript">
-    	$(document).ready(function(){
-    		var height = $(window).height()-$("#menuHeight").height()
-    					-$(".menuAction").height()-$(".navbar").height();
-    		$(".menuAction").css("margin-top",height);
 
+    	$(document).ready(function(){
+    		
+
+    		
     		$('input').iCheck({
 			    checkboxClass: 'icheckbox_minimal-green',
 			    radioClass: 'iradio_minimal-green',
 			    increaseArea: '20%' // optional
 			 });
-
-	    	$(".product").mouseover(function(){
-	    		$("#prodInfo").css("display","block");
-	    	});
-
-	    	$(".product").mouseleave(function(){
-	    		$("#prodInfo").css("display","none");
-	    	});
+    		$('.date').datepicker();
     	});
 
-    	
     </script>
 
     <style type="text/css">
     	/*组件全局样式设置 */
+    	*{
+    		margin: 0;
+    		padding: 0;
+    	}
+
+    	html,body{
+    		height: 100%;
+    	}
+
     	ul{
     		list-style: none;
-    		margin:0;
-    		padding: 0;
     	}
 
     	a{
     		color:#84a099;
     		text-decoration: none;
+    		cursor:pointer;
     	}
 
     	a:hover{
     		text-decoration: none;
+    		cursor: pointer;
     	}
 
     	.navbar{
     		margin-bottom: 0;
     	}
+    	/*印章效果*/
+    	.seal{
+    		display: inline-block;
+    		padding: 2px 6px 2px;
+    		background-color: #fbdbdb;
+    		color: #d45d51;
+    		border-radius: 10px;
+    		-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			font-size:12px;
+			vertical-align: middle;
+    	}
+    	.seal:hover{
+    		color: #D54334;
+    	}
+    	/*label效果*/
+    	label{
+    		font-weight: normal;
+    	}
+
+    	label i{
+    		font-weight: bold;
+    	}
+        /*修改bootstrap里输入框的高度*/
+        .form-control{
+            height: 30px;
+        }
+        /*修改bootstrap里按钮的高度*/
+        .btn{
+            padding: 5px 12px;
+        }
     	/*修改bootstrap默认导航栏颜色*/
     	.bs-docs-nav {
 			text-shadow: 0 -1px 0 rgba(0,0,0,.15);
@@ -163,11 +197,12 @@
 			-moz-box-shadow:inset 1px 0 1px rgba(0,0,0,0.2);
 			box-shadow:inset 1px 0 1px rgba(0,0,0,0.2)
 		}
-
+		/* 侧边导航栏样式*/
     	.main .sidebar{
-    		width:240px;
-    		height: 100%;
-			float: left;
+    		width:200px;
+    		bottom: 0;
+    		top: 60px;
+			position: absolute;
 			background: transparent url(img/bg.png);	
 			border-right: 1px solid #b3b3b3;
     	}
@@ -242,9 +277,10 @@
 		}
 
 		.main .sidebar .menuAction{
-			background-color: #aaa;
+			position: absolute;
 			width: 100%;
-			overflow: hidden;
+			bottom: 0;
+			background-color: #aaa;
 			border-top: 1px solid #ccc;
 			background-color: #e7e7e7;
 			background-image: -moz-linear-gradient(top, #f7f7f7, #cfcfcf);
@@ -257,13 +293,15 @@
 		}
 
 		/* 导航栏最底部*/
-		.main .sidebar .menuAction ul{
+		.main .sidebar .menuAction ul,
+        .task .prod-menu .menu-content{
 			border-top: 1px solid #fff;
 			margin: 0;
 			position: relative;
 		}
 
-		.main .sidebar .menuAction ul li{
+		.main .sidebar .menuAction ul li,
+        .task .prod-menu .menu-content > li{
 			float: left;
 			border-right: 1px solid #e9e9e9;
 		}
@@ -305,29 +343,41 @@
 			border-left: 1px solid #c8c8c8;
 		}
 
-    	.main .content .task{
-    		float: left;
-    		width:45%;
-    		height: 100%;
+		/* 中间栏样式*/
+    	.main .task{
+    		position: absolute;
+    		top: 60px;
+    		bottom: 0;
+    		left:200px;
+    		width:388px;
     		-moz-box-shadow: 0 0 5px rgba(0,0,0,0.15);
     		-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.15);
 			box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 			border: 1px solid #dbdfd6;
     	}
 
-    	.main .content .task .batch{
-    		padding: 30px 2px 55px;
+    	.main .task .batch{
+    		padding: 10px 12px 45px;
     		background: url(img/head-border.png) repeat-x 0 100%;
+    	}
+
+    	.main .task .batch h3{
+    		margin-top: 0px;
+    		color: #068572;
     	}
 
     	.left{
     		float: left;
     	}
 
+    	.right{
+    		float: right;
+    	}
+
     	.task .listTitle{
-    		overflow: hidden;
-    		padding: 5px 0 10px 20px;
+    		padding: 5px 0 10px 5px;
     		border-bottom: 1px solid #d3d3d3;
+    		min-height: 50px;
     	}
 
     	.task .product-list{
@@ -335,12 +385,16 @@
     	}
 
     	.task .product-list .product{
-    		padding: 10px 0 10px 20px;
+    		padding: 8px 0 8px 5px;
     		overflow: hidden;
 			border-bottom: 1px solid #d3d3d3;
     	}
 
-    	.task .product-list .product .shift{
+    	.product .seal{
+    		margin-left: 65px;
+    	}
+
+    	.shift{
     		padding-top: 5px;
     	}
 
@@ -348,12 +402,13 @@
     		margin-left: 10px;
     	}
 
+
     	.task .product-list .product .prod-link{
     		min-height: 40px;
 			font-size: 14px;
 			line-height: 16px;
 			margin-left: 20px;
-    		max-width: 300px;
+    		max-width: 220px;
     	}
 
     	.task .product-list .product .prod-link .prod-name{
@@ -363,31 +418,210 @@
 			text-overflow: ellipsis;
     	}
 
-    	.task .product-list .product .prod-link .prod-intro{
+    	.task .product-list .product .prod-link .prod-price{
+			overflow: hidden;
+			line-height: 1.0;
+			color: #999999;
+			margin: 4px 0 0 0;
+			font-size: 12px;
+    	}
+
+    	.task .product-list .product .prod-link .prod-date{
 			white-space: nowrap;
 			overflow: hidden;
-			line-height: 1.2;
-			text-overflow: ellipsis;
+			line-height: 1.0;
 			color: #999999;
-			margin: 6px 0 0 0;
+			margin: 4px 0 0 0;
 			word-wrap: break-word;
     	}
+
 
     	.task .product-list .product .showButton{
     		margin-left: 20px;
     		margin-top: 10px;
     	}
 
-    	.main .content .taskDetail{
-    		float: left;
-    		width:55%;
-    		margin: 0;
+        .task .prod-menu{
+            position:absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /*第三块区域*/
+    	.main .task-detail{
+    		position: absolute;
+    		top: 60px;
+    		left:588px;
+    		right: 0;
+    		bottom:0;
 			background-color: #ffffff;
 			-webkit-box-sizing: border-box;
 			-moz-box-sizing: border-box;
 			-ms-box-sizing: border-box;
 			box-sizing: border-box;
+			-moz-box-shadow: 0 0 5px rgba(0,0,0,0.15);
+    		-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.15);
+			box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     	}
+        .nav a{
+            font-size: 18px;
+            line-height: 1.1;
+        }
+
+        .task-detail .prod{
+            padding:0 25px 0 25px;
+        }
+        .prod .prod-action{
+            height: 30px;
+            line-height: 30px;
+        }
+        /*删除按钮*/
+        .prod-action .prod-menu{
+            position: absolute;
+            right: 25px;
+        }
+
+        .prod-id a,.prod a{
+            color: #4298ba;
+        }
+
+        .prod-header a:hover,.prod a:hover{
+            color: #0f769f;
+        }
+
+        
+
+    	.task-detail .control-label{
+    		font-weight:normal;
+    		text-align: right;
+    	}
+
+    	.task-detail .form-control{
+    		display: inline-block;
+    	}
+
+    	.task-detail .intro-header{
+    		margin-top: 10px;
+    	}
+
+
+    	.intro-header .sp-form{
+    	}
+
+    	.intro-header .header-desc{
+    		display: inline-block;
+    	}
+
+
+    	.intro-header .sp-form .form-group{
+
+    		margin-bottom:10px;
+    	}
+    	.intro-header .sp-form .control-label{
+    		margin-top: 5px;
+    		float: left;
+    		width: 80px;
+    	}
+    	.intro-header .sp-form .form-control{
+    		margin-left: 10px;
+    		height: 30px;
+            width: 43%;
+    	}
+
+    	.intro{
+    		margin-bottom: 8px;
+    	}
+
+    	.intro .control-label{
+            float: left;
+    		text-align: left;
+            width:12%;
+    	}
+        .intro .form-control{
+            display: block;
+            width: 87%;
+        }
+
+    	.intro-body{
+    		float: left;
+    	}
+
+    	.intro-body .control-label{
+    		text-align: left;
+    	}
+
+    	.intro-body .seal{
+    		margin-top: 7px;
+    	}
+
+    	.nav-header{
+    		float: left;
+    		margin-right: 20px;
+    	}
+
+    	.nav-header h4{
+    		color:#068572;
+    	}
+    	/*覆盖bootstrap的导航效果*/
+    	.nav-cover .active a{
+    		font-weight: bold;
+    		color: black !important;
+    	}
+    	.nav-cover a{
+    		color: #555555;
+    	}
+    	.nav-cover .caret{
+    		border-top-color: #555555;
+    	}
+    	.nav .open > a, .nav .open > a:hover, .nav .open > a:focus{
+    		border-color: #84a099;
+    	}
+
+    	.task-detail .stock-header{
+    		margin:8px 0 5px 0;
+    	}
+
+    	.stock-header .clone{
+    		position: relative;
+    		left:40px;
+    	}
+
+    	.stock-header .schedule{
+    		position: relative;
+    		left:80px;
+    	}
+
+    	.task-detail .detail-bottom{
+    		position: absolute;
+    		bottom:0;
+    	}
+
+    	.stock-body{
+    	}
+
+    	.stock-body ul{
+    		width: 100%;
+    	}
+
+    	.stock-body .stock-time{
+    		float: left;
+    		width: 48% !important;
+    		margin: 0 1% 0 0 !important;
+    	}
+
+    	.stock-body .form-control{
+    		width: auto;
+    	}
+
+    	.stock-body .stock-content > li{
+    		float: left;
+    		width: 100%;
+    		margin-bottom: 16px;
+    	}
+
+
+
+
     </style>
 </head>
 <body>
@@ -457,92 +691,181 @@
 			</div>
 		</div>
 
-		<div class='content'>
-			<div class='task'>
-				<div class="batch">
-					<div class="role">
-						<div class="col-md-3">
-							<button type="button" class="btn btn-success">管理库存 <span class='glyphicon glyphicon-shopping-cart'></span></button>
-						</div>
-						<div class="col-md-3">
-							<button type="button" class="btn btn-success">添加商品 <span class='glyphicon glyphicon-plus'></span></button>
-						</div>					
+		
+		<div class='task'>
+			<div class="batch">
+				<div class="role">
+					<div class='col-md-5'>
+						<h3>商品列表</h3>
 					</div>
-				</div>
-
-				<div class="listTitle">
-					<div class='left'><input type="checkbox"></div>
-					<div class='left'>全选</div>
-				</div>
-
-				<div class='product-list'>
-					<div class='product'>
-						<div class='left shift'><input type="checkbox"></div>
-						<a class='left avatar' id='prod1'><img class='img-rounded' height='48' width='48' src="img/prod1.png"></a>
-						<a class="left prod-link">
-							<div class='prod-name'>密室迷失 <span class="label label-danger">2013-09-14 <span class='glyphicon glyphicon-warning-sign'></span></span></div>
-							<div class='prod-intro'>五人的密室缺突然多了一个谁也不认识的人，黑夜重重，究竟谁才是那个幕后后手</div>
-						</a>
-
-						<!-- 当鼠标在商品图片上方时，会出现修改和删除按钮-->
-						<div id='prodInfo' class="left showButton" style="display:none;">
-							<a><span class='glyphicon glyphicon-pencil'></span></a>
-							<a><span class='glyphicon glyphicon-trash'></span></a>
-						</div>
-					</div>
-					<div class='product'>
-						<div class='left shift'><input type="checkbox"></div>
-						<a class='left avatar' id='prod1'><img class='img-rounded' height='48' width='48' src="img/prod1.png"></a>
-						<a class="left prod-link">
-							<div class='prod-name'>密室迷失 <span class="label label-danger">2013-09-14 <span class='glyphicon glyphicon-warning-sign'></span></span></div>
-							<div class='prod-intro'>五人的密室缺突然多了一个谁也不认识的人，黑夜重重，究竟谁才是那个幕后后手</div>
-						</a>
-
-						<!-- 当鼠标在商品图片上方时，会出现修改和删除按钮-->
-						<div id='prodInfo' class="left showButton" style="display:none;">
-							<a><span class='glyphicon glyphicon-pencil'></span></a>
-							<a><span class='glyphicon glyphicon-trash'></span></a>
-						</div>
-					</div>
-					<div class='product'>
-						<div class='left shift'><input type="checkbox"></div>
-						<a class='left avatar' id='prod1'><img class='img-rounded' height='48' width='48' src="img/prod1.png"></a>
-						<a class="left prod-link">
-							<div class='prod-name'>密室迷失 <span class="label label-danger">2013-09-14 <span class='glyphicon glyphicon-warning-sign'></span></span></div>
-							<div class='prod-intro'>五人的密室缺突然多了一个谁也不认识的人，黑夜重重，究竟谁才是那个幕后后手</div>
-						</a>
-
-						<!-- 当鼠标在商品图片上方时，会出现修改和删除按钮-->
-						<div id='prodInfo' class="left showButton" style="display:none;">
-							<a><span class='glyphicon glyphicon-pencil'></span></a>
-							<a><span class='glyphicon glyphicon-trash'></span></a>
-						</div>
-					</div>
-					<div class='product'>
-						<div class='left shift'><input type="checkbox"></div>
-						<a class='left avatar' id='prod1'><img class='img-rounded' height='48' width='48' src="img/prod1.png"></a>
-						<a class="left prod-link">
-							<div class='prod-name'>密室迷失 <span class="label label-danger">2013-09-14 <span class='glyphicon glyphicon-warning-sign'></span></span></div>
-							<div class='prod-intro'>五人的密室缺突然多了一个谁也不认识的人，黑夜重重，究竟谁才是那个幕后后手</div>
-						</a>
-
-						<!-- 当鼠标在商品图片上方时，会出现修改和删除按钮-->
-						<div id='prodInfo' class="left showButton" style="display:none;">
-							<a><span class='glyphicon glyphicon-pencil'></span></a>
-							<a><span class='glyphicon glyphicon-trash'></span></a>
-						</div>
-					</div>														
 				</div>
 			</div>
-			<div class='taskDetail'>
-				
+
+			<div class="listTitle">
+				<div style='width:25%;float:left'>
+					<div class="btn-group">
+						<button type="button" class="btn btn-default">排序</button>
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+							<span class="sr-only">Toggle Dropdown</span>
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">商品名</a></li>
+							<li><a href="#">截止时间</a></li>
+						</ul>
+					</div>
+				</div>
+				<div style='width:35%;float:left'>
+					<div class="btn-group">
+						<button type="button" class="btn btn-default">据状态筛选</button>
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+							<span class="sr-only">Toggle Dropdown</span>
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">待上架</a></li>
+							<li><a href="#">上架中</a></li>
+							<li><a href="#">已下架</a></li>
+							<li><a href="#">已过期</a></li>
+						</ul>
+					</div>					
+				</div>
+				<div style='width:40%;float:left'>
+					<div class='input-group'>
+						<span class='input-group-addon'><span class=' glyphicon glyphicon-search'></span></span>
+						<input type='text' placeholder='搜索' class='form-control'></input>
+					</div>
+				</div>
+
 			</div>
+
+			<ul class='product-list'>
+				<li class='product'>
+					<div class='left shift'><input type="checkbox"></div>
+					<img class='img-rounded left avatar' src="img/prod1.png" height="48px" width='48px'>
+					<a class="left prod-link">
+						<div class='prod-name'>密室迷失 </div>
+						<div class='prod-price'>价格：100￥</div>
+						<div class='prod-price'>有效期：<span class="label label-danger">2013-09-14 </span></div>						
+					</a>
+					<a class="seal">上架中</a>
+				</li>
+				<li class='product'>
+					<div class='left shift'><input type="checkbox"></div>
+					<img class='img-rounded left avatar' src="img/prod1.png" height="48px" width='48px'>
+					<a class="left prod-link">
+						<div class='prod-name'>密室迷失 </div>
+						<div class='prod-price'>价格：100￥</div>
+						<div class='prod-price'>有效期：<span class="label label-danger">2013-09-14 </span></div>						
+					</a>
+					<a class="seal">上架中</a>
+				</li>
+				<li class='product'>
+					<div class='left shift'><input type="checkbox"></div>
+					<img class='img-rounded left avatar' src="img/prod1.png" height="48px" width='48px'>
+					<a class="left prod-link">
+						<div class='prod-name'>密室迷失 </div>
+						<div class='prod-price'>价格：100￥</div>
+						<div class='prod-price'>有效期：<span class="label label-danger">2013-09-14 </span></div>						
+					</a>
+					<a class="seal">已上架</a>
+				</li>
+				<li class='product'>
+					<div class='left shift'><input type="checkbox"></div>
+					<img class='img-rounded left avatar' src="img/prod1.png" height="48px" width='48px'>
+					<a class="left prod-link">
+						<div class='prod-name'>密室迷失 </div>
+						<div class='prod-price'>价格：100￥</div>
+						<div class='prod-price'>有效期：<span class="label label-danger">2013-09-14 </span></div>						
+					</a>
+					<a class="seal">未上架</a>
+				</li>												
+			</ul>
+            <div class='prod-menu'>
+                <ul class='menu-content'>
+                    <li><input style="display:inline-block" type="checkbox"><label >全选</label></li>
+                    <li>
+                        <div class='dropup'>
+                            <a href="#" data-toggle='dropdown'>批量管理<span class='caret'></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">工作日</a></li>
+                                <li><a href="#">周六</a></li>
+                                <li><a href="#">特殊日1</a></li>                       
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
 		</div>
+		
+		<div class='task-detail'>
+			<ul class='nav nav-tabs nav-justified'>
+                <li class='active'><a href="#">基础信息</a></li>         
+                <li><a href="#">库存管理</a></li>         
+                <li><a href="#">图文介绍</a></li>         
+            </ul>
+            <div class='prod'>
+                <div class="prod-action">
+                    <label>商品ID：1234</label>
+                    <a href="#" class='prod-menu'>删除<span class='glyphicon glyphicon-trash'></span></a>
+                </div>
+                <div class='intro-header'>
+                    <img class='left' src="data:image/png;base64," data-src="holder.js/200x150/text:封面图片">
+                    <div class="sp-form">
+                        <div class="form-group">
+                            <label for="inputProdName" class= 'control-label'>商品名称</label>
+                            <input type="text" class="form-control" id="inputProdName" placeholder="输入商品名">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputProdPrice" class='control-label'>积分</label>
+                            <input type="text" class="form-control" id="inputProdPrice" placeholder="输入积分">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputProdPrice" class='control-label'>价格</label>
+                            <input type="text" class="form-control" id="inputProdPrice" placeholder="输入价格">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputProdDate" class='control-label'>类别</label>
+                            <input type="text" class="form-control"  id="inputProdDate">
+                        </div>
+                    </div>  
+                </div>
+                <div class='intro'>
+                    <label class="control-label">简介：</label>
+                    <input type='text' class='form-control'>
+                </div>
+
+                <div class='intro-body'>
+                    <label style='width:60px' class='control-label'>有效期：</label>
+                    <div style="width:20%;display:inline-block" class="input-append date" id="dp1"  data-date-format="yyyy-mm-dd">
+                        <input class="form-control span2" value='开始时间' size="16" type="text">
+                        <span class="add-on"><i class="icon-th"></i></span>
+                    </div>
+                    <label style='width:25px;' class='control-label'>至：</label>
+                    <div style="width:20%;display:inline-block" class="input-append date" id="dp2"  data-date-format="yyyy-mm-dd">
+                        <input class="form-control span2" value='2013-09-12' size="16" type="text">
+                        <span class="add-on"><i class="icon-th"></i></span>
+                    </div>  
+                    <label style='width:75px' class='control-label'>当前状态：</label>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default">待上架</button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">上架中</a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+		</div>
+		
 	</div>
 		
-
 	
     <script src="js/bootstrap.min.js"></script>
-    
+    <script src="js/holder.js"></script>
 </body>
 </html>
